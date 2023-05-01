@@ -1,6 +1,6 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Icon from '@components/Icon.astro';
+// import Layout from '@layouts/Layout.astro';
+// import Icon from '@components/Icon.astro';
 
 const randomInt = (min: number, max: number) =>
 		Math.floor(Math.random() * (max - min + 1)) + min;
@@ -11,10 +11,10 @@ const randomInt = (min: number, max: number) =>
 	const textGradient = `45deg, ${genRandomPrettyColor()} -20%, ${genRandomPrettyColor()} 50%`;
 ---
 
-<Layout
+<!-- <Layout
 	title="React Typescript Senior Web Developer | aandre.gg"
 	description={'Hello, I am Andre, always happy to help with any interesting projects!, let me know'}
->
+> -->
 	<main>
 		<div class="outter">
 			<div>
@@ -29,17 +29,17 @@ const randomInt = (min: number, max: number) =>
 				<a href='/Andre_Kuznetcov_resume_2023.pdf' class="resume-link" download>📖 My resume</a>
 				<div>
 					<a href='https://www.linkedin.com/in/andrewebdev' rel="noreferrer noopener" title='Link to my linkedin'>
-						<Icon icon="linkedin"/>
+						<!-- <Icon icon="linkedin"/> -->
 					</a>
 					<a href='https://github.com/KatFishSnake' rel="noreferrer noopener" title='Link to my github'>
-						<Icon icon="github"/>
+						<!-- <Icon icon="github"/> -->
 					</a>
 				</div>
 				<!-- <a href = "mailto: abc@example.com">Send Email</a> -->
 			</div>
 		</div>
 	</main>
-</Layout>
+<!-- </Layout> -->
 
 <style>
 	main {
