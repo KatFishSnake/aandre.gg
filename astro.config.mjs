@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/edge";
 import partytown from "@astrojs/partytown";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +14,6 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
+    tailwind(),
   ],
 });
