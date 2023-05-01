@@ -2,7 +2,8 @@
 
 declare global {
   interface Window {
-    dataLayer: (string | Date)[];
+    // rome-ignore lint/suspicious/noExplicitAny: <explanation>
+    dataLayer: Record<string, any>[];
   }
 }
 
