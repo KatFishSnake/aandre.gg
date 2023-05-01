@@ -16,18 +16,18 @@ const randomInt = (min: number, max: number) =>
 	description={'Hello, I am Andre, always happy to help with any interesting projects!, let me know'}
 >
 	<main>
-		<div class="outter">
+		<div class="outter flex my-0 mx-auto gap-4">
 			<div>
 				<div class="logo-container" style={{background: `linear-gradient(${textGradient})`}}>
 					<img class="logo" src="/logo-type.svg" alt="logo-type" width="40px" height="40px"/>
 				</div>
 				<p>Hi, I'm</p>
-				<h1>Andre <br/> Kuzac</h1>
+				<h1 class="font-semibold">Andre <br/> Kuzac</h1>
 				<p>I write code and think about solutions.  👋</p>
 			</div>
 			<div class="inner-links">
 				<a href='/Andre_Kuznetcov_resume_2023.pdf' class="resume-link" download>📖 My resume</a>
-				<div>
+				<div class="flex gap-2">
 					<a href='https://www.linkedin.com/in/andrewebdev' rel="noreferrer noopener" title='Link to my linkedin'>
 						<Icon icon="linkedin"/>
 					</a>
@@ -55,13 +55,9 @@ const randomInt = (min: number, max: number) =>
 		font-family: 'Changa', sans-serif;
 	}
 
-	h1, p {
-		margin: 0;
-	}
-
 	h1 {
 		line-height: 0.8;
-		font-size: 72px;
+		font-size: 72px !important;
 	}
 
 	p {
@@ -70,12 +66,6 @@ const randomInt = (min: number, max: number) =>
 
 	.outter {
 		max-width: 680px;
-		display: flex;
-		margin: 0 auto;
-	}
-
-	.inner-copy {
-
 	}
 
 	.inner-links {
@@ -125,7 +115,6 @@ const randomInt = (min: number, max: number) =>
 		}
 		.resume-link {
 			margin-bottom: 10px;
-			font-size: 20px;
 		}
 
 		.inner-links svg {
