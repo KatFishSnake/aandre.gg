@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+import Icon from '@components/Icon.astro';
 
 const randomInt = (min: number, max: number) =>
 		Math.floor(Math.random() * (max - min + 1)) + min;
@@ -10,22 +11,32 @@ const randomInt = (min: number, max: number) =>
 	const textGradient = `45deg, ${genRandomPrettyColor()} -20%, ${genRandomPrettyColor()} 50%`;
 ---
 
-<Layout title="Welcome to aandre.gg">
+<Layout
+	title="React Typescript Senior Web Developer | aandre.gg"
+	description={'Hello, I am Andre, always happy to help with any interesting projects!, let me know'}
+>
 	<main>
 		<div class="outter">
-			<div class="inner-copy">
+			<div>
 				<div class="logo-container" style={{background: `linear-gradient(${textGradient})`}}>
-					<img class="logo" src="/logo-type.svg" alt="logo-type" />
+					<img class="logo" src="/logo-type.svg" alt="logo-type" width="40px" height="40px"/>
 				</div>
 				<p>Hi, I'm</p>
 				<h1>Andre <br/> Kuzac</h1>
 				<p>I write code and think about solutions.  👋</p>
 			</div>
-			<!-- <div class="inner-links">
-				<a href='/'>📖 My resume</a>
-				<a href='/'><img src='/linkedin.svg' alt='linkedin-logo'/></a>
-				<a href='/'><img src='/github.svg' alt='github-logo'/></a>
-			</div> -->
+			<div class="inner-links">
+				<a href='/Andre_Kuznetcov_resume_2023.pdf' class="resume-link" download>📖 My resume</a>
+				<div>
+					<a href='https://www.linkedin.com/in/andrewebdev' rel="noreferrer noopener" title='Link to my linkedin'>
+						<Icon icon="linkedin"/>
+					</a>
+					<a href='https://github.com/KatFishSnake' rel="noreferrer noopener" title='Link to my github'>
+						<Icon icon="github"/>
+					</a>
+				</div>
+				<!-- <a href = "mailto: abc@example.com">Send Email</a> -->
+			</div>
 		</div>
 	</main>
 </Layout>
@@ -40,8 +51,11 @@ const randomInt = (min: number, max: number) =>
 		width: 100%;
 	}
 
-	h1, p {
+	body {
 		font-family: 'Changa', sans-serif;
+	}
+
+	h1, p {
 		margin: 0;
 	}
 
@@ -76,5 +90,48 @@ const randomInt = (min: number, max: number) =>
 		width: 40px;
 		height: 40px;
 	}
+
+	.resume-link {
+		color: black;
+		text-decoration: none;
+		font-size: 24px;
+	}
+
+	.resume-link:hover {
+		text-decoration: underline;
+	}
+
+	.inner-links a:not(.resume-link) {
+		color: #00A4D8;
+		text-decoration: none;
+	}
+	.inner-links a:not(.resume-link):hover {
+		color: #8cd1e9;
+	}
+
+	.inner-links svg {
+		width: 42px;
+	}
+
+	@media (max-width: 680px) {
+		.outter {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0 20px;
+		}
+
+		.inner-links {
+			margin-top: 20px;
+		}
+		.resume-link {
+			margin-bottom: 10px;
+			font-size: 20px;
+		}
+
+		.inner-links svg {
+			width: 56px;
+		}
+	}
+
 </style>
 

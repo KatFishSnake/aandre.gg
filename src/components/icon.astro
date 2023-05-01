@@ -1,0 +1,21 @@
+---
+export type IconProps = {
+  icon: string;
+  alt: string;
+}
+
+const { icon, ...attributes } = Astro.props as IconProps;
+
+function addAttributesToInnerHTMLString(innerHTML: string, attributes: Record<string, string>) {
+  const attributesString = Object.entries(attributes)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(' ');
+
+  return innerHTML.replace(/^<svg/, `<svg ${attributesString}`);
+}
+
+const { default: svg } = await import(`/public/svg/${icon}.svg?raw`);
+const innerHTML = addAttributesToInnerHTMLString(svg, attributes);
+---
+
+<Fragment set:html={innerHTML} />
