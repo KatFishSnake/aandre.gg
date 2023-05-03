@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Icon from '@components/Icon.astro';
+import { Tooltips } from 'astro-tooltips';
 
 const randomInt = (min: number, max: number) =>
 		Math.floor(Math.random() * (max - min + 1)) + min;
@@ -21,21 +22,25 @@ const randomInt = (min: number, max: number) =>
 				<div class="logo-container" style={{background: `linear-gradient(${textGradient})`}}>
 					<img class="logo" src="/logo-type.svg" alt="logo-type" width="40px" height="40px"/>
 				</div>
-				<p>Hi, I'm</p>
-				<h1 class="font-semibold">Andre <br/> Kuzac</h1>
+				<p class="pt-4">Hi, I'm</p>
+				<h1 class="font-semibold">Andre <br/> Kuznetcov</h1>
 				<p>I write code and think about solutions.  👋</p>
 			</div>
 			<div class="inner-links">
 				<a href='/Andre_Kuznetcov_resume_2023.pdf' class="resume-link" download>📖 My resume</a>
-				<div class="flex gap-2">
-					<a href='https://www.linkedin.com/in/andrewebdev' rel="noreferrer noopener" title='Link to my linkedin'>
+				<div class="flex gap-2 justify-end">
+					<a href='https://www.linkedin.com/in/andrewebdev' rel="noreferrer noopener">
 						<Icon icon="linkedin"/>
 					</a>
-					<a href='https://github.com/KatFishSnake' rel="noreferrer noopener" title='Link to my github'>
+					<a href='https://github.com/KatFishSnake' rel="noreferrer noopener">
 						<Icon icon="github"/>
 					</a>
 				</div>
-				<!-- <a href = "mailto: abc@example.com">Send Email</a> -->
+				<div class="flex gap-2">
+					<span title='<p>Email me!</br> </br> <code>andre [dot] kuzac [at] gmail</code></p>' data-tooltip-interactive="top" class="inner-link-message">
+						<Icon icon="message"/>
+					</span>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -91,16 +96,28 @@ const randomInt = (min: number, max: number) =>
 		text-decoration: underline;
 	}
 
-	.inner-links a:not(.resume-link) {
+	.inner-links > div {
+		justify-content: right;
+	}
+
+	.inner-links a:not(.resume-link), .inner-links span:not(.resume-link) {
 		color: #00A4D8;
 		text-decoration: none;
 	}
+	
 	.inner-links a:not(.resume-link):hover {
 		color: #8cd1e9;
 	}
 
 	.inner-links svg {
 		width: 42px;
+	}
+
+	.inner-links .inner-link-message svg {
+    padding-top: 10px;
+    padding-right: 3px;
+    width: 36px;
+    box-sizing: content-box;
 	}
 
 	@media (max-width: 680px) {
@@ -120,7 +137,16 @@ const randomInt = (min: number, max: number) =>
 		.inner-links svg {
 			width: 56px;
 		}
-	}
 
+		.inner-links .inner-link-message svg {
+			padding-top: 10px;
+			padding-left: 7px;
+			width: 45px;
+		}
+
+		.inner-links > div {
+			justify-content: left;
+		}
+	}
 </style>
 
