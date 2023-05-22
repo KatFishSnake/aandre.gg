@@ -4,29 +4,36 @@ import Icon from '@components/Icon.astro';
 import { Tooltips } from 'astro-tooltips';
 
 const randomInt = (min: number, max: number) =>
-		Math.floor(Math.random() * (max - min + 1)) + min;
-	
-	const genRandomPrettyColor = () =>
-		`hsl(${randomInt(0, 360)},${randomInt(42, 98)}%,${randomInt(40, 90)}%)`;
-	
-	const textGradient = `45deg, ${genRandomPrettyColor()} -20%, ${genRandomPrettyColor()} 50%`;
+	Math.floor(Math.random() * (max - min + 1)) + min;
+
+const genRandomPrettyColor = () =>
+	`hsl(${randomInt(0, 360)},${randomInt(42, 98)}%,${randomInt(40, 90)}%)`;
+
+const textGradient = `45deg, ${genRandomPrettyColor()} -20%, ${genRandomPrettyColor()} 50%`;
+
 ---
 
 <Layout
 	title="React Typescript Senior Web Developer | aandre.gg"
-	description={'Hello, I am Andre, always happy to help with any interesting projects!, let me know'}
+	description='Hello, I am Andre, always happy to help with any interesting projects!, let me know. I specialize in React, Typescript, NodeJS and GraphQL'
 >
 	<main>
 		<div class="outter flex my-0 mx-auto gap-4">
-			<div>
+			<section>
 				<div class="logo-container" style={{background: `linear-gradient(${textGradient})`}}>
 					<img class="logo" src="/logo-type.svg" alt="logo-type" width="40px" height="40px"/>
 				</div>
-				<p class="pt-4">Hi, I'm</p>
-				<h1 class="font-semibold">Andre <br/> Kuznetcov</h1>
-				<p>I write code and think about solutions.  👋</p>
-			</div>
-			<div class="inner-links">
+				<p class="header-context pt-4">Hi, I'm</p>
+				<hgroup>
+					<h1 class="font-semibold">Andre <br/> Kuznetcov</h1>
+					<h3 class='header-context'>I write code and think about solutions.  👋</h3>
+				</hgroup>
+				<p class='content pt-8'>I am currently a Full Stack Web Developer on a small team from Santa Monica trying to help humans with AI.</p>
+				<p class='content flex'>Check us out: <a class='rosebud-link pl-4' href="https://my.rosebudjournal.com" rel="noreferrer noopener" target="_blank"><Icon icon="rosebud"/> Rosebud
+					</a>
+				</p>
+			</section>
+			<section class="inner-links">
 				<a href='/Andre_Kuznetcov_resume_2023.pdf' class="resume-link" download>📖 My resume</a>
 				<div class="flex gap-2 justify-end">
 					<a href='https://www.linkedin.com/in/andrewebdev' rel="noreferrer noopener">
@@ -41,10 +48,19 @@ const randomInt = (min: number, max: number) =>
 						<Icon icon="message"/>
 					</span>
 				</div>
-			</div>
+			</section>
 		</div>
 	</main>
+	<footer class='fixed bottom-0 w-full text-center text-gray-300 font-light'>Andre Kuznetcov © 2023</footer>
 </Layout>
+
+<script>
+const resumeLinkBtn = document.querySelector('a.resume-link');
+resumeLinkBtn.addEventListener('click', () => {
+	// Dispatch gtag event to track resume downloads
+	window.gtag('event', 'download_resume');
+});
+</script>
 
 <style>
 	main {
@@ -65,17 +81,18 @@ const randomInt = (min: number, max: number) =>
 		font-size: 72px !important;
 	}
 
-	p {
+	.header-context {
 		font-size: 24px;
 	}
 
 	.outter {
-		max-width: 680px;
+		max-width: 700px;
 	}
 
 	.inner-links {
 		display: flex;
 		flex-direction: column;
+		min-width: 150px;
 	}
 
 	.logo {
@@ -120,7 +137,18 @@ const randomInt = (min: number, max: number) =>
     box-sizing: content-box;
 	}
 
-	@media (max-width: 680px) {
+	.content {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 20px;
+	}
+
+	.rosebud-link {
+		display: flex;
+    gap: 4px;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 700px) {
 		.outter {
 			flex-direction: column;
 			align-items: flex-start;

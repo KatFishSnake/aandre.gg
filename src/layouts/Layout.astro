@@ -11,7 +11,7 @@ const { description } = Astro.props;
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -26,8 +26,8 @@ const { description } = Astro.props;
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-		
 			gtag('config', 'G-CZ6633SFWZ');
+			window.gtag = gtag
 		</script>
 
 		<meta name="twitter:card" content="summary" />
@@ -39,6 +39,7 @@ const { description } = Astro.props;
 		<meta property="og:image" content="/android-chrome-512x512.png" />
 
 		<title>{title}</title>
+		<meta name="description" content={description} />
 
 		<Tooltips delay={15} allowHTML/>
 	</head>
@@ -47,7 +48,7 @@ const { description } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@400;600&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@300;400;600&family=Space+Grotesk&display=swap');
 
 	:root {
 		--accent: 124, 58, 237;
